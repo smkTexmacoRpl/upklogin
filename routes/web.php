@@ -1,7 +1,10 @@
 <?php
 
+// use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use  Illuminate\Support\Facades\Auth;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,5 +22,6 @@ Route::middleware(['auth','user-access:admin'])->group(function(){
 });
 
 Route::middleware(['auth','user-access:super_admin'])->group(function(){
-    Route::get('/admin/home',[HomeController::class,'superHome'])->name('super.home');  
+    Route::get('/super/home',[HomeController::class,'superHome'])->name('super.home');  
  });
+

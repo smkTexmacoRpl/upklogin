@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -41,7 +42,7 @@ class LoginController extends Controller
     {
        if(auth()->user()->role == 'admin'){
         return redirect()->route('admin.home');
-       }else if(auth()->user()->role=='super admin'){
+       }else if(auth()->user()->role=='super_admin'){
         return redirect()->route('super.home');
        }else {
         return redirect()->route('home');
@@ -50,4 +51,14 @@ class LoginController extends Controller
             return redirect()->route('login')->with('error','Email-address & passsword Are Wrong!');
         }
 }
+// public function logout()
+// {
+//     Auth::logout(){
+//         request()->session()->invalidate();
+//         request()->session()->regenerate();
+//         return redirect()->to('/');
+
+//     }
+// }
+
 }
