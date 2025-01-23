@@ -10,6 +10,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dash', function () {
+    return view('admin.dashboard');
+});
+
 Auth::routes();
 
 Route::middleware(['auth', 'user-access:user'])->group(function(){

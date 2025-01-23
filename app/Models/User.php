@@ -54,7 +54,6 @@ class User extends Authenticatable
     {
         return new Attribute(
             get:fn($value) => ["user","admin","super_admin"][$value], 
-
         );
     } 
    }
