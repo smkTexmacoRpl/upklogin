@@ -1,6 +1,8 @@
-@extends('layouts.apps')
+@extends('layouts.app')
 @section('content')
 
-ini Dashboard
+<div class="container">
+    <h1>this is dashboard</h1>
+</div>
 
 @endsection
